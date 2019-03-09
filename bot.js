@@ -5,6 +5,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setGame("#Pure.","https://www.twitch.tv/idk");
 });
+
+
+
+
 client.on('guildMemberAdd', member => {
 
     const channel = member.guild.channels.find('name', 'chat');
@@ -100,19 +104,19 @@ if(message.channel.type === 'dm') return;
  .setTitle(`${client.user.username}`)
  .setDescription(`
  -=-=-=-=-=-=-=-=-=-=
- 🎖 Broadcast sends to a specific role without embed
+ 🎖 برود كاست برتبة معينة بدون امبد
  
- 🏅 Broadcast sends to a specific role with embed
+ 🏅 برودكاست رتبة معينة امبد
  
- 📭 Broadcast sends for all members with embed
+ 📭 برودكاست كل الاعضاء امبد
  
- 📧 Broadcast sends for all members without embed
+ 📧 برودكسات كل الاعضاء بدون امبد
  
- 🔵 Broadcast sends for online members only without embed
+ 🔵 برودكسات اونلاين فقط بدون امبد
  
- 🔷 Broadcast sends for online members only with embed
+ 🔷 برودكسات اونلاين فقط امبد
  
- ❌ To Cancel the process
+ ❌ الغاء
  -=-=-=-=-=-=-=-=-=-=
  `)
  
@@ -167,7 +171,7 @@ if(message.channel.type === 'dm') return;
            .then(collected => {
                collected.first().delete();
                msge = collected.first().content;
-               msg.edit('✅ **| Do You Want A Mention In The Msg ? [yes OR no] **').then(msg => {
+               msg.edit('✅ **| تبي تسوي منشن بالرسالة ؟ ? [yes OR no] **').then(msg => {
                  message.channel.awaitMessages(filter, {
                    max: 1,
                    time: 90000,
@@ -216,7 +220,7 @@ if(message.channel.type === 'dm') return;
        
  onlineonly.on('collect', r => {
     let msge;
-    message.channel.send(':pencil: **| Please Write Now The Message To Send :pencil2: **').then(msg => {
+    message.channel.send(':pencil: **| اكتب الان الرسالة التي ستنرسل للجميع :pencil2: **').then(msg => {
  
         message.channel.awaitMessages(filter, {
           max: 1,
@@ -226,7 +230,7 @@ if(message.channel.type === 'dm') return;
         .then(collected => {
             collected.first().delete();
             msge = collected.first().content;
-            msg.edit('✅ **| Do You Want A Mention In The Msg ? [yes OR no] **').then(msg => {
+            msg.edit('✅ **| تبي تسوي منشن بالرسالة .؟ ? [yes OR no] **').then(msg => {
               message.channel.awaitMessages(filter, {
                 max: 1,
                 time: 90000,
@@ -235,7 +239,7 @@ if(message.channel.type === 'dm') return;
               .then(collected => {
  
                 if(collected.first().content === 'yes') {
-message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+message.channel.send(`**:white_check_mark: تم ارسال الرسالة للاعضاء :loudspeaker:**`);
                
  
 message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
@@ -245,7 +249,7 @@ m.send(`${m}`)
     })
 }
 if(collected.first().content === 'no') {
-message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+message.channel.send(`**:white_check_mark: تم الارسال الرسالة للاعضاء :loudspeaker:**`);
 message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
     m.send(`${msge}`)
                
@@ -258,7 +262,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
  
  embedmsg.on('collect', r => {
      let msge;
-  message.channel.send(':pencil: **| Please Write Now The Message To Send :pencil2: **').then(msg => {
+  message.channel.send(':pencil: **| اكتب الرسالة المراد ارسالها الان :pencil2: **').then(msg => {
  
          message.channel.awaitMessages(filter, {
            max: 1,
@@ -268,7 +272,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
          .then(collected => {
              collected.first().delete();
              msge = collected.first().content;
-             msg.edit('✅ **| Do You Want A Mention In The Msg ? [yes OR no] **').then(msg => {
+             msg.edit('✅ **| تبي تمشن بالرسالة؟ ? [yes OR no] **').then(msg => {
                message.channel.awaitMessages(filter, {
                  max: 1,
                  time: 90000,
@@ -276,7 +280,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
                })
                .then(collected => {
                  if(collected.first().content === 'yes') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark: تم ارسالها للاعضاء :loudspeaker:**`);
  
  
      message.guild.members.forEach(m => {
@@ -294,7 +298,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
      })
  }})
  if(collected.first().content === 'no') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark: تم ارسالها للاعضاء :loudspeaker:**`);
      message.guild.members.forEach(m => {
          var bc = new Discord.RichEmbed()
          .setColor('RANDOM')
@@ -321,7 +325,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
  
  normalmsg.on('collect', r => {
      let msge;
-     message.channel.send(':pencil: **| Please Write Now The Message To Send :pencil2: **').then(msg => {
+     message.channel.send(':pencil: **| اكتب رسالة البرودكاست الحين .:pencil2: **').then(msg => {
  
          message.channel.awaitMessages(filter, {
            max: 1,
@@ -331,7 +335,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
          .then(collected => {
              collected.first().delete();
              msge = collected.first().content;
-             msg.edit('✅ **| Do You Want A Mention In The Msg ? [yes OR no] **').then(msg => {
+             msg.edit('✅ **| تبي منشن بالرسالة ? [yes OR no] **').then(msg => {
                message.channel.awaitMessages(filter, {
                  max: 1,
                  time: 90000,
@@ -340,7 +344,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
                .then(collected => {
  
                  if(collected.first().content === 'yes') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark: تم ارسالها للاعضاء:loudspeaker:**`);
                  
  
      message.guild.members.forEach(m => {
@@ -350,7 +354,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
      })
  }
  if(collected.first().content === 'no') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark: تم ارسالها للاعضاء:loudspeaker:**`);
      message.guild.members.forEach(m => {
          m.send(`${msge}`)
                  
@@ -364,7 +368,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
  onlyrole.on('collect', r => {
      let msge;
      let role;
-     message.channel.send(':pencil: **| Please Write Now The Message To Send :pencil2: **').then(msg => {
+     message.channel.send(':pencil: **| اكتب رسالة البرودكاست الان :pencil2: **').then(msg => {
  
          message.channel.awaitMessages(filter, {
            max: 1,
@@ -375,7 +379,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
          .then(collected => {
              collected.first().delete();
              msge = collected.first().content;
-                 msg.edit('✅ **| Now Please Write The Role Name**').then(msg => {
+                 msg.edit('✅ **| اكتب اسم الرول المراد ارسال لهم البرودكاست**').then(msg => {
                  message.channel.awaitMessages(filter, {
                      max: 1,
                      time: 90000,
@@ -386,7 +390,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
              collected.first().delete();
              role = collected.first().content;
                  let rolecheak = message.guild.roles.find('name', `${role}`)
-             msg.edit('✅ **| Do You Want A Mention In The Msg ? [yes OR no] **').then(msg => {
+             msg.edit('✅ **|تبي منشن بالرسالة ? [yes OR no] **').then(msg => {
                message.channel.awaitMessages(filter, {
                  max: 1,
                  time: 90000,
@@ -395,7 +399,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
                .then(collected => {
  
                  if(collected.first().content === 'yes') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark: تم ارسالها للاعضاء :loudspeaker:**`);
                  
  
              message.guild.members.filter(m => m.roles.get(rolecheak.id)).forEach(m => {
@@ -406,7 +410,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
      })
  }
  if(collected.first().content === 'no') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark: تم ارسالها للاعضاء :loudspeaker:**`);
          message.guild.members.filter(m => m.roles.get(rolecheak.id)).forEach(m => {
  
          m.send(`${msge}`)
@@ -425,7 +429,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
  embedonlyrole.on('collect', r => {
      let msge;
      let role;
-     message.channel.send(':pencil: **| Please Write Now The Message To Send :pencil2: **').then(msg => {
+     message.channel.send(':pencil: **| اكتب رسالة البرودكاست الان :pencil2: **').then(msg => {
  
          message.channel.awaitMessages(filter, {
            max: 1,
@@ -436,7 +440,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
          .then(collected => {
              collected.first().delete();
              msge = collected.first().content;
-                 msg.edit('✅ **| Now Please Write The Role Name**').then(msg => {
+                 msg.edit('✅ **| اكتب اسم الرتبة الان **').then(msg => {
                  message.channel.awaitMessages(filter, {
                      max: 1,
                      time: 90000,
@@ -447,7 +451,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
              collected.first().delete();
              role = collected.first().content;
                  let rolecheak = message.guild.roles.find('name', `${role}`)
-             msg.edit('✅ **| Do You Want A Mention In The Msg ? [yes OR no] **').then(msg => {
+             msg.edit('✅ **| تبي منشن بالرسالة ? [yes OR no] **').then(msg => {
                message.channel.awaitMessages(filter, {
                  max: 1,
                  time: 90000,
@@ -456,7 +460,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
                .then(collected => {
  
                  if(collected.first().content === 'yes') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark:تم ارسالها للاعضاء :loudspeaker:**`);
                  
  
                      message.guild.members.filter(m => m.roles.get(rolecheak.id)).forEach(m => {
@@ -474,7 +478,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
      })
  }
  if(collected.first().content === 'no') {
- message.channel.send(`**:white_check_mark: The Message Has Been Sent The Members :loudspeaker:**`);
+ message.channel.send(`**:white_check_mark: تم ارسالها للاعضاء :loudspeaker:**`);
  message.guild.members.filter(m => m.roles.get(rolecheak.id)).forEach(m => {
          var bc = new Discord.RichEmbed()
          .setColor('RANDOM')
