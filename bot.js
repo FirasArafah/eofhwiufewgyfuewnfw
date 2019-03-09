@@ -56,7 +56,7 @@ client.on('message', async message => {
                       })
                       let embed = new Discord.RichEmbed()
                       .setTitle('**Done The Leave Msg Code Has Been Setup**')
-                      .addField('Message:', `${thisMessage}`)
+                      .addField('Message:', `${thisMessage} <@${client.user.id}>`)
                       .addField('Channel:', `${boi}`)
                       .setThumbnail(message.author.avatarURL)
                       .setFooter(`${client.user.username}`)
