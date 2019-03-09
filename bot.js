@@ -11,7 +11,7 @@ client.on('guildMemberAdd', member=> {
     });
 
 var fs = require("fs");
- var prefix = "#";
+ const prefix = "#";
 const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8'));
 client.on('message', async message => {
     let messageArray = message.content.split(" ");
@@ -361,7 +361,7 @@ client.on('guildMemberAdd', member => {
 
 
     client.on('message',message =>{
-         var prefix = "#";
+         
     if(message.content.split(' ')[0].toLowerCase() == prefix + 'myinv') {
    let guild = message.guild
    var codes = [""]
@@ -420,7 +420,6 @@ client.on('guildMemberAdd', member => {
 });
 
 
-var prefix = "#";
 client.on('message', message => {
 if(message.author.bot) return;
 if(message.channel.type === 'dm') return;
