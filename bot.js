@@ -9,6 +9,8 @@ client.on('ready', () => {
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Pr."));
     });
+
+var fs = require("fs");
  var prefix = "#";
 const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8'));
 client.on('message', async message => {
