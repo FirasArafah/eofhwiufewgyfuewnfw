@@ -81,7 +81,7 @@ client.on('message', message => {
 
     let room = message.content.split(" ").slice(1);
     let findroom = message.guild.channels.find('name', `${room}`)
-    if(message.content.startsWith(prefix + "setWelcomer")) {
+    if(message.content.startsWith(prefix + "setwelcomer")) {
         if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
         if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
 if(!room) return message.channel.send('Please Type The Channel Name')
@@ -229,7 +229,7 @@ client.on('guildMemberAdd',async member => {
     if(welcome[member.guild.id].onoff === 'Off') return;
     const Canvas = require('canvas');
     const jimp = require('jimp');
-    const w = ['./welcome_4.png'];
+    const w = ['./welcome_2.png'];
           let Image = Canvas.Image,
               canvas = new Canvas(800, 300),
               ctx = canvas.getContext('2d');
