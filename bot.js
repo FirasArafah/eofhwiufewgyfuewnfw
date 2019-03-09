@@ -6,7 +6,9 @@ client.on('ready', () => {
   client.user.setGame("#Pure.","https://www.twitch.tv/idk");
 });
 
-
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","Pr."));
+    });
 
 
 client.on('guildMemberAdd', member => {
